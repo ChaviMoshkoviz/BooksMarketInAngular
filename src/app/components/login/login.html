@@ -1,0 +1,26 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2>כניסה למערכת</h2>
+    <p>ברוכים הבאים לאתר יד-2 לספרים</p>
+    
+    <form (ngSubmit)="onLogin()">
+      <div class="form-group">
+        <label>אימייל</label>
+        <input type="email" [(ngModel)]="loginData.email" name="email" required placeholder="הכנס אימייל">
+      </div>
+
+      <div class="form-group">
+        <label>סיסמה</label>
+        <input type="password" [(ngModel)]="loginData.password" name="password" required placeholder="הכנס סיסמה">
+      </div>
+
+      <button type="submit" class="btn-login">התחבר</button>
+      
+      <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    </form>
+    
+    <div class="footer-links">
+      <span>עוד לא רשומים? <a>צרו חשבון חדש</a></span>
+    </div>
+  </div>
+</div>
