@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../../services/UserService';
@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.css']
 })
 export class LoginComponent {
+  @Output() loginSuccess = new EventEmitter<void>(); // אירוע חדש
   // אובייקט לאחסון נתוני הטופס
   loginData = { email: '', password: '' };
   errorMessage: string = '';

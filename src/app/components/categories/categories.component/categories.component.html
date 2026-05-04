@@ -1,0 +1,64 @@
+<div class="categories-container">
+
+
+  <!-- סרגל מסננים -->
+  <div class="filter-bar">
+    
+    <!-- מסנן ערים -->
+<div class="filter-item">
+  <label>ערים</label>
+  <input list="city-list" [(ngModel)]="selectedCity" (change)="applyFilters()" placeholder="הקלד עיר...">
+  <datalist id="city-list">
+    <option *ngFor="let city of cities" [value]="city"></option>
+  </datalist>
+</div>
+
+    <!-- מסנן מכירה/מסירה -->
+    <div class="filter-item">
+      <label>למכירה/למסירה</label>
+      <select [(ngModel)]="selectedType" (change)="applyFilters()">
+        <option value="all">הכל</option>
+        <option value="sale">מכירה</option>
+        <option value="giveaway">מסירה</option>
+      </select>
+    </div>
+
+    <!-- מסנן קטגוריה -->
+    <div class="filter-item">
+      <label>סוג ספר/קטגוריה</label>
+      <select [(ngModel)]="selectedCategory" (change)="applyFilters()">
+        <option value="">הכל</option>
+        <option *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
+      </select>
+    </div>
+
+    <!-- מסנן מצב הספר -->
+    <div class="filter-item">
+      <label>מצב הספר</label>
+      <select [(ngModel)]="selectedCondition" (change)="applyFilters()">
+        <option value="">הכל</option>
+        <option *ngFor="let cond of conditions" [value]="cond">{{cond}}</option>
+      </select>
+    </div>
+
+    <!-- מסנן מחיר - מוצג רק אם נבחרה "מכירה" -->
+    <div class="filter-item" *ngIf="selectedType === 'sale'">
+      <label>מחיר עד: {{maxPrice}} ₪</label>
+      <input type="range" min="0" max="1000" [(ngModel)]="maxPrice" (change)="applyFilters()">
+    </div>
+  </div>
+
+  <!-- רשימת ספרים (המלבן הכחול בשרטוט) -->
+  <div class="results-area">
+    <h3>רשימת ספרים + תמונה כותרת מחבר וכו'</h3>
+    <div class="book-grid">
+      <div class="book-placeholder" *ngFor="let i of [1,2,3,4,5,6,7,8]">
+        <div class="black-box"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sorting-options">
+    אפשרויות למיון לפי מחיר / דירוג / חדשים / תאריך פרסום
+  </div>
+</div>

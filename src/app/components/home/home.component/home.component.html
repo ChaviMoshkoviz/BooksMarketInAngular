@@ -1,0 +1,51 @@
+
+
+<main class="content">
+  <!-- סרגל חיפוש חכם -->
+  <div class="search-section">
+    <p>סרגל חיפוש חכם</p>
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchText" placeholder="חיפוש לפי שם ספר או מחבר...">
+      <span class="search-icon">🔍</span>
+    </div>
+  </div>
+
+  <!-- תצוגת ספרים פופולאריים -->
+  <section class="popular-books">
+    <h3>ספרים פופולאריים</h3>
+    <!-- המלבן הכחול הגדול -->
+    <div class="book-grid">
+      <!-- לולאה על הספרים המסוננים -->
+      <div class="book-card" *ngFor="let book of filteredBooks">
+        <div class="book-info">
+          <p class="title">{{book.title}}</p>
+          <p class="author">{{book.author}}</p>
+        </div>
+        <!-- הריבוע השחור שמייצג תמונה בתרשים -->
+        <div class="image-placeholder"></div>
+      </div>
+      
+      <!-- הודעה במידה ולא נמצאו ספרים בחיפוש -->
+      <p *ngIf="filteredBooks.length === 0" style="color: white;">לא נמצאו ספרים תואמים לחיפוש שלך.</p>
+    </div>
+  </section>
+
+  <!-- כפתור פרסום תחתון -->
+  <div class="footer-action">
+    <button class="publish-btn">פרסם אצלנו</button>
+  </div>
+</main>
+
+<!-- חלונית התחברות (Modal) -->
+<div class="modal-overlay" *ngIf="showLoginModal">
+  <div class="modal-content">
+    <!-- כפתור סגירה (X) -->
+    <button class="close-btn" (click)="closeModal()">X</button>
+    
+    <!-- הזרקת קומפוננטת הלוגין -->
+    <app-login (loginSuccess)="closeModal()"></app-login>
+    
+    <!-- אפשרות דילוג -->
+    <p class="skip-text" (click)="closeModal()">אני ארשם אחר כך</p>
+  </div>
+</div>

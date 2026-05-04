@@ -1,0 +1,77 @@
+
+
+/* שורת חיפוש */
+.search-section {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  border: 2px solid black;
+  font-size: 16px;
+}
+
+/* גריד הספרים - הריבוע הכחול הגדול */
+.book-grid {
+  background-color: #1a5d7a;
+  display: flex;
+  gap: 20px;
+  padding: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* כרטיס ספר בודד */
+.book-card {
+  width: 140px;
+  text-align: center;
+  color: white;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 180px;
+  background-color: black;
+  margin-top: 5px;
+}
+
+/* כפתור פרסום ירוק */
+.publish-btn {
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 25px;
+  font-size: 18px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto;
+}
+
+/* Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  position: relative;
+  min-width: 350px;
+}
